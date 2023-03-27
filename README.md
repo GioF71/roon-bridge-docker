@@ -1,12 +1,12 @@
 # Roon Bridge on Docker
 
-## Build
+## Build docker image
 
 Use the included script to build the image:
 
 `./build.sh`
 
-## Install
+## Install Roon Bridge
 
 Create a `roon` directory, maybe in the repo itself, and run:
 
