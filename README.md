@@ -12,7 +12,8 @@ Use the included script to build the image:
 
 ## Run
 
-Use the `roon` directory in the repo itself, and run:
+You can use the published images or the one you build by yourself. See the repo [here](https://hub.docker.com/r/giof71/roon-bridge).  
+Select a directory to be mapped to `/roon` in order to speed-up restarts, and run:
 
 ```
 docker run \
@@ -22,7 +23,7 @@ docker run \
     -v ./roon:/roon \
     --network host \
     --device /dev/snd \
-    giof71/roon-bridge:local-bullseye
+    giof71/roon-bridge
 ```
 
 ## Environment Variables
