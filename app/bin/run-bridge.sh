@@ -11,6 +11,9 @@ if [[ ! -d "RoonBridge" ]]; then
     file_dict[armv7l]=RoonBridge_linuxarmv7hf.tar.bz2
     file_dict[aarch64]=RoonBridge_linuxarmv8.tar.bz2
     ARCH=`uname -m`
+    if [[ -n "${FORCE_ARCH}" ]]; then
+        ARCH="${FORCE_ARCH}"
+    fi
     FILENAME=${file_dict["${ARCH}"]}
     FILE="/roon/$FILENAME"
     curl -O "$URL_DIR/$FILENAME"

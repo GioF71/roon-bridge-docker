@@ -36,7 +36,7 @@ RUN mkdir -p /app
 RUN mkdir -p /app/bin
 RUN mkdir -p /app/doc
 
-ENV STARTUP_DELAY_SEC ""
+ENV FORCE_ARCH ""
 
 COPY app/bin/run-bridge.sh /app/bin/
 RUN chmod +x /app/bin/*.sh
