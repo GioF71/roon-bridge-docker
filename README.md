@@ -10,7 +10,7 @@ Use the included script to build the image:
 
 `./build.sh`
 
-# Run
+## Run
 
 Use the `roon` directory in the repo itself, and run:
 
