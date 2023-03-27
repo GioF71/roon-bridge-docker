@@ -38,7 +38,6 @@ RUN mkdir -p /app/doc
 
 ENV STARTUP_DELAY_SEC ""
 
-COPY app/bin/install-bridge.sh /app/bin/
 COPY app/bin/run-bridge.sh /app/bin/
 RUN chmod +x /app/bin/*.sh
 
