@@ -1,5 +1,9 @@
 # Roon Bridge on Docker
 
+## Disclaimer
+
+This is experimental. I do not even have Roon myself.  
+
 ## Build docker image
 
 Use the included script to build the image:
