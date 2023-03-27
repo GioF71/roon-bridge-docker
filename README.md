@@ -11,7 +11,8 @@ Use the included script to build the image:
 Use the `roon` directory in the repo itself, and run:
 
 ```
-docker run --rm \
+docker run \
+    --rm \
     -it \
     --name roon-bridge \
     -v ./roon:/roon \
