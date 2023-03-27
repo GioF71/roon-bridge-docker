@@ -5,7 +5,6 @@ ARG USE_APT_PROXY
 RUN mkdir -p /app/conf
 
 RUN echo "USE_APT_PROXY=["${USE_APT_PROXY}"]"
-RUN echo "INTEGER_UPSAMPLING_SUPPORT=["${INTEGER_UPSAMPLING_SUPPORT}"]"
 
 COPY app/conf/01-apt-proxy /app/conf/
 
@@ -19,7 +18,6 @@ RUN if [ "${USE_APT_PROXY}" = "Y" ]; then \
 
 ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update
-RUN apt-get upgrade -y
 RUN apt-get install -y curl
 RUN apt-get install -y lbzip2
 RUN apt-get install -y alsa-utils
