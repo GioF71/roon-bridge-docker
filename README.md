@@ -43,6 +43,7 @@ docker run \
     --name roon-bridge \
     --network host \
     --device /dev/snd \
+    --label com.centurylinklabs.watchtower.enable=false \
     giof71/roon-bridge
 ```
 
