@@ -1,9 +1,5 @@
 # Roon Bridge on Docker
 
-## Disclaimer
-
-This is experimental. I do not even have Roon myself.  
-
 ## Links
 
 Repo|URL
