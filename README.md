@@ -62,7 +62,7 @@ services:
       - /dev/snd:/dev/snd
     labels:
       - com.centurylinklabs.watchtower.enable=false
-    restart: always
+    restart: unless-stopped
 ```
 
 ## Changelog
