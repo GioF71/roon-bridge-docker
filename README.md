@@ -38,12 +38,12 @@ You can use the published images or the one you build by yourself. See the repo 
 
 ```
 docker run \
-    --rm \
-    -it \
+	-d \
     --name roon-bridge \
+	--restart unless-stopped \
     --network host \
     --device /dev/snd \
-    --label com.centurylinklabs.watchtower.enable=false \
+	--label com.centurylinklabs.watchtower.enable=false \
     giof71/roon-bridge
 ```
 
