@@ -63,5 +63,5 @@ Date|Description
 :---|:---
 2023-03-29|Allow `BASE_URL` as alternate source for downloads
 2023-03-29|Removed `/roon` mountpoint for ease of use
-2023-03-29|Add volume /files for providing files (avoid downloads)
+2023-03-29|Add volume `/files` for providing the necessary binary files (avoid downloads)
 2023-03-27|Added `FORCE_ARCH` variable
