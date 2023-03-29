@@ -30,13 +30,14 @@ COPY --from=BASE / /
 LABEL maintainer="GioF71"
 LABEL source="https://github.com/GioF71/roon-bridge-docker"
 
-VOLUME /roon
+VOLUME /files
 
 RUN mkdir -p /app
 RUN mkdir -p /app/bin
 RUN mkdir -p /app/doc
 
 ENV FORCE_ARCH ""
+ENV BASE_URL ""
 
 COPY app/bin/run-bridge.sh /app/bin/
 RUN chmod +x /app/bin/*.sh
