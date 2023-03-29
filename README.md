@@ -40,7 +40,7 @@ You can use the published images or the one you build by yourself. See the repo 
 docker run \
     -d \
     --name roon-bridge \
-    --restart unless-stopped \
+    --restart always \
     --network host \
     --device /dev/snd \
     --label com.centurylinklabs.watchtower.enable=false \
@@ -62,7 +62,7 @@ services:
       - /dev/snd:/dev/snd
     labels:
       - com.centurylinklabs.watchtower.enable=false
-    restart: unless-stopped
+    restart: always
 ```
 
 ## Changelog
