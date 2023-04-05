@@ -7,6 +7,12 @@ Repo|URL
 Source code|[GitHub](https://github.com/GioF71/roon-bridge-docker)
 Docker images|[Docker Hub](https://hub.docker.com/r/giof71/roon-bridge)
 
+## Available Archs on Docker Hub
+
+- linux/amd64
+- linux/arm/v7
+- linux/arm64/v8
+
 ## Build docker image
 
 Use the included script to build the image:
@@ -18,7 +24,7 @@ Use the included script to build the image:
 Variable|Description
 :---|:---
 BASE_URL|If set, files are downloaded from that URL instead of from the roon servers
-FORCE_ARCH|If set, we are not using `uname -m` to select architecture. Useful for example with LibreElec on the Pi4, which reports `aarch64`, but then the binary does not work: setting this variable to `armv7l` solved the issue for me. Possible values are `aarch64`, `armv7l` and `x86_64`.
+FORCE_ARCH|If set, we are using the value instead of `uname -m` when selecting the binary file to use/download. This can be useful for example with LibreElec or OSMC on the Pi4, which have a 64bit kernel (`aarch64`) but a 32bit docker version: in this situation, then container starts but then the binary does not work. Setting this variable to `armv7l` solved the issue for me. Possible values are `aarch64`, `armv7l` and `x86_64`.
 
 ## Volumes
 
@@ -32,7 +38,7 @@ You can use the published images or the one you build by yourself. See the repo 
 
 ### Docker Run
 
-```
+```text
 docker run \
     -d \
     --name roon-bridge \
