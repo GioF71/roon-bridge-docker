@@ -15,7 +15,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        base: ["bullseye"]
+        base: ["stable"]
 
     steps:
       - name: Checkout
@@ -35,20 +35,19 @@ jobs:
           image_name=${{secrets.DOCKER_USERNAME}}/roon-bridge
 
           declare -A base_images_dict
+          base_images_dict[stable]="debian:stable-slim"
+          base_images_dict[bookworm]="debian:bookworm-slim"
           base_images_dict[bullseye]="debian:bullseye-slim"
 
           select_base_image=${base_images_dict[${{ matrix.base }}]}
 
           declare -A upstream_image_from_matrix
+          upstream_image_from_matrix[stable]=debian:stable-slim
           upstream_image_from_matrix[bookworm]=debian:bookworm-slim
           upstream_image_from_matrix[bullseye]=debian:bullseye-slim
-          upstream_image_from_matrix[buster]=debian:buster-slim
-          upstream_image_from_matrix[vanilla-bookworm]=debian:bookworm-slim
-          upstream_image_from_matrix[vanilla-bullseye]=debian:bullseye-slim
-          upstream_image_from_matrix[vanilla-buster]=debian:buster-slim
 
           declare -A special_tags
-          special_tags[bullseye]="${image_name}:stable,${image_name}:latest"
+          special_tags[stable]="${image_name}:stable,${image_name}:latest"
 
           tags=""
           if [ "${ref_type}" = "branch" ]; then
