@@ -13,6 +13,18 @@ Docker images|[Docker Hub](https://hub.docker.com/r/giof71/roon-bridge)
 - linux/arm/v7
 - linux/arm64/v8
 
+### Install Docker
+
+Docker is a prerequisite. On debian and derived distributions (this includes Raspberry Pi OS, DietPi, Moode Audio, Volumio, OSMC), we can install the necessary packages using the following commands:
+
+```text
+sudo apt-get update
+sudo apt-get install docker.io docker-compose
+sudo usermod -a -G docker $USER
+```
+
+The last command adds the current user to the docker group. This is not mandatory; if you choose to skip this step, you might need to execute docker-compose commands by prepending `sudo`.  
+
 ## Build docker image
 
 Use the included script to build the image:
@@ -66,6 +78,12 @@ services:
       - com.centurylinklabs.watchtower.enable=false
     restart: always
 ```
+
+## Installation on Moode Audio or Volumio
+
+It is possible to use this solution for easy installation of Roon Bridge on [Moode Audio](https://moodeaudio.org/) and [Volumio](https://volumio.com/).  
+It is required to have a ssh connection to the Moode/Volumio audio box. In order to enable ssh on Volumio, refer to [this](https://developers.volumio.com/SSH%20Connection) page.  
+Those two platforms do not ship docker out of the box (unsurprisingly), so docker installation is required. See [Docker Installation](#install-docker) earlier in this page.  
 
 ## Changelog
 
