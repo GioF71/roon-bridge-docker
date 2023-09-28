@@ -89,6 +89,7 @@ Those two platforms do not ship docker out of the box (unsurprisingly), so docke
 
 Date|Description
 :---|:---
+2023-09-28|Switch to debian stable by default (see [#20](https://github.com/GioF71/roon-bridge-docker/issues/20))
 2023-03-29|Allow `BASE_URL` as alternate source for downloads
 2023-03-29|Removed `/roon` mountpoint for ease of use
 2023-03-29|Add volume `/files` for providing the necessary binary files (avoid downloads)
