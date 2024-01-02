@@ -79,6 +79,11 @@ services:
     restart: always
 ```
 
+### Disabling watchtower
+
+[Watchtower](https://containrrr.dev/watchtower/) is an excellent tool, but it can disrupt your listening experience if an image update can trigger a container recreation.  
+I am therefore keeping watchtower disabled in my examples.  
+
 ## Installation on Moode Audio or Volumio
 
 It is possible to use this solution for easy installation of Roon Bridge on [Moode Audio](https://moodeaudio.org/) and [Volumio](https://volumio.com/).  
