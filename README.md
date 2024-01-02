@@ -19,7 +19,7 @@ Docker is a prerequisite. On debian and derived distributions (this includes Ras
 
 ```text
 sudo apt-get update
-sudo apt-get install docker.io docker-compose
+sudo apt-get install -y docker.io docker-compose
 sudo usermod -a -G docker $USER
 ```
 
