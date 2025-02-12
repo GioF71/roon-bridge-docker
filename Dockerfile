@@ -1,4 +1,5 @@
-FROM debian:bullseye-slim AS BASE
+ARG SELECT_IMAGE=${BASE_IMAGE}
+FROM ${SELECT_IMAGE:-debian:bullseye-slim} AS base
 
 ARG USE_APT_PROXY
 
@@ -25,7 +26,7 @@ RUN apt-get install -y alsa-utils
 RUN rm -rf /var/lib/apt/lists/*
 
 FROM scratch
-COPY --from=BASE / /
+COPY --from=base / /
 
 LABEL maintainer="GioF71"
 LABEL source="https://github.com/GioF71/roon-bridge-docker"
@@ -36,8 +37,8 @@ RUN mkdir -p /app
 RUN mkdir -p /app/bin
 RUN mkdir -p /app/doc
 
-ENV FORCE_ARCH ""
-ENV BASE_URL ""
+ENV FORCE_ARCH=""
+ENV BASE_URL=""
 
 COPY app/bin/run-bridge.sh /app/bin/
 RUN chmod +x /app/bin/*.sh
