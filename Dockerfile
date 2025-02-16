@@ -1,5 +1,5 @@
 ARG SELECT_IMAGE=${BASE_IMAGE}
-FROM ${SELECT_IMAGE:-debian:bookworm-slim} AS base
+FROM ${SELECT_IMAGE:-debian:stable-slim} AS base
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     apt-get install -y curl lbzip2 alsa-utils && \
