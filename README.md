@@ -7,6 +7,12 @@ Repo|URL
 Source code|[GitHub](https://github.com/GioF71/roon-bridge-docker)
 Docker images|[Docker Hub](https://hub.docker.com/r/giof71/roon-bridge)
 
+## Support
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/H2H7UIN5D)  
+Please see the [Goal](https://ko-fi.com/giof71/goal?g=0).  
+Please note that support goal is limited to cover running costs for subscriptions to music services.
+
 ## Available Archs on Docker Hub
 
 - linux/amd64
