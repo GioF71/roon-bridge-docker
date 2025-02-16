@@ -1,29 +1,9 @@
 ARG SELECT_IMAGE=${BASE_IMAGE}
-FROM ${SELECT_IMAGE:-debian:bullseye-slim} AS base
+FROM ${SELECT_IMAGE:-debian:bookworm-slim} AS base
 
-ARG USE_APT_PROXY
-
-RUN mkdir -p /app/conf
-
-RUN echo "USE_APT_PROXY=["${USE_APT_PROXY}"]"
-
-COPY app/conf/01-apt-proxy /app/conf/
-
-RUN if [ "${USE_APT_PROXY}" = "Y" ]; then \
-    echo "Builind using apt proxy"; \
-    cp /app/conf/01-apt-proxy /etc/apt/apt.conf.d/01-apt-proxy; \
-    cat /etc/apt/apt.conf.d/01-apt-proxy; \
-    else \
-    echo "Building without apt proxy"; \
-    fi
-
-ARG DEBIAN_FRONTEND=noninteractive
-RUN apt-get update
-RUN apt-get install -y curl
-RUN apt-get install -y lbzip2
-RUN apt-get install -y alsa-utils
-
-RUN rm -rf /var/lib/apt/lists/*
+RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
+    apt-get install -y curl lbzip2 alsa-utils && \
+    rm -rf /var/lib/apt/lists/*
 
 FROM scratch
 COPY --from=base / /
@@ -33,17 +13,13 @@ LABEL source="https://github.com/GioF71/roon-bridge-docker"
 
 VOLUME /files
 
-RUN mkdir -p /app
 RUN mkdir -p /app/bin
-RUN mkdir -p /app/doc
 
 ENV FORCE_ARCH=""
 ENV BASE_URL=""
 
 COPY app/bin/run-bridge.sh /app/bin/
 RUN chmod +x /app/bin/*.sh
-
-COPY README.md /app/doc/
 
 WORKDIR /app/bin
 
