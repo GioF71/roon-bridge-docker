@@ -2,7 +2,6 @@
 
 # error codes
 # 2 Invalid base image
-# 3 Invalid proxy parameter
 
 declare -A base_image_tags
 
@@ -17,7 +16,6 @@ local_tag[bullseye]=local-bullseye
 
 DEFAULT_BASE_IMAGE=stable
 DEFAULT_TAG=local
-DEFAULT_USE_PROXY=N
 
 tag=""
 git_branch="$DEFAULT_GIT_VERSION"
@@ -27,13 +25,11 @@ do
     case "${flag}" in
         b) base_image_tag=${OPTARG};;
         t) tag=${OPTARG};;
-        p) proxy=${OPTARG};;
     esac
 done
 
 echo "base_image_tag: $base_image_tag";
 echo "tag: $tag";
-echo "proxy: [$proxy]";
 
 if [ -z "${base_image_tag}" ]; then
   base_image_tag=$DEFAULT_BASE_IMAGE
@@ -52,23 +48,9 @@ else
   tag=$DEFAULT_TAG
 fi
 
-if [ -z "${proxy}" ]; then
-  proxy="N"
-fi
-if [[ "${proxy}" == "Y" || "${proxy}" == "y" ]]; then  
-  proxy="Y"
-elif [[ "${proxy}" == "N" || "${proxy}" == "n" ]]; then  
-  proxy="N"
-else
-  echo "invalid proxy parameter ["${proxy}"]"
-  exit 3
-fi
-
 echo "Base Image Tag: [$selected_image_tag]"
 echo "Build Tag: [$tag]"
-echo "Proxy: [$proxy]"
 
 docker build . \
     --build-arg BASE_IMAGE=${selected_image_tag} \
-    --build-arg USE_APT_PROXY=${proxy} \
     -t giof71/roon-bridge:$tag

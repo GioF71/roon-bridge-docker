@@ -1,1 +1,0 @@
-Acquire::http::proxy "http://apt.homelab.local:3142";
