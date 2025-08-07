@@ -16,8 +16,8 @@ Please note that support goal is limited to cover running costs for subscription
 ## Available Archs on Docker Hub
 
 - linux/amd64
-- linux/arm/v7
 - linux/arm64/v8
+- linux/arm/v7
 
 ### Install Docker
 
@@ -30,6 +30,8 @@ sudo usermod -a -G docker $USER
 ```
 
 The last command adds the current user to the docker group. This is not mandatory; if you choose to skip this step, you might need to execute docker-compose commands by prepending `sudo`.  
+Please note that this is not necessarily the best way of installing docker on your machine. First of all, the suggested method installs the packages from the distribution repositories. You might prefer to install from the docker repositories in order to have a more updated version.  
+You can use this solution with Podman as well. See [this discussion](https://github.com/GioF71/roon-bridge-docker/discussions/30).  
 
 ## Build docker image
 
